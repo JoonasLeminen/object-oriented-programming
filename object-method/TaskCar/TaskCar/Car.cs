@@ -12,18 +12,6 @@ namespace TaskCar
         public string Brand;
         public int Speed;
 
-        //Constructor
-        public Car()
-        {
-            Brand = "unknown";
-            Speed = 0;
-        }
-        public Car(string brand, int speed)
-        {
-            Brand = brand;
-            Speed = speed;
-        }
-
         //Methods
         public void ShowCarInfo()
         {
@@ -35,6 +23,17 @@ namespace TaskCar
             string brand = Console.ReadLine();
             Console.WriteLine("Syötä auton nopeus:");
             int speed = int.Parse(Console.ReadLine());
+        }
+        public void Accelerate(int speed)
+        {
+            if (speed >= 0)
+            {
+                Speed += speed;
+            }
+        }
+        public void Brake()
+        {
+            Speed = Speed / 10 * 9;
         }
     }
 }
