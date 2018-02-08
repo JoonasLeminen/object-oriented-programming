@@ -6,39 +6,39 @@ namespace TaskLiterature
 {
     class Book
     {
-        public string Name;
-        public string Author;
-        public string Publisher;
-        public int Price;
-        static string ThemeName;
+        string _name;
+        readonly string _author;
+        string _publisher;
+        double _price;
+        static string _themeName;
 
         public Book()
         {
-            Name = null;
-            Author = null;
-            Publisher = null;
-            Price = 0;
-            ThemeName = null;
+            _name = null;
+            _author = null;
+            _publisher = null;
+            _price = 0;
+            _themeName = null;
         }
 
-        public Book(string name, string author, string publisher, int price, string themeName)
+        public Book(string name, string author, string publisher, double price, string themeName)
         {
-            name = Name;
-            author = Author;
-            publisher = Publisher;
-            price = Price;
-            themeName = ThemeName;
+            _name = name;
+            _author = author;
+            _publisher = publisher;
+            _price = price;
+            _themeName = themeName;
         }
 
         public void GetBookInfo(string bookName)
         {
-            if (Name == bookName)
+            if (_name == bookName)
             {
-                Console.WriteLine($"Kirjan nimi: {Name}/n" +
-                                  $"Kirjan tekijä: {Author}/n" +
-                                  $"Kirjan julkaisija: {Publisher}/n" +
-                                  $"Kirjan hinta: {Price}:C/n" +
-                                  $"Kirjan teema: {ThemeName}");
+                Console.WriteLine($"Kirjan nimi: {_name}\n" +
+                                  $"Kirjan tekijä: {_author}\n" +
+                                  $"Kirjan julkaisija: {_publisher}\n" +
+                                  $"Kirjan hinta: {_price:C}\n" +
+                                  $"Kirjan teema: {_themeName}\n");
             }
             else
             {
@@ -47,7 +47,32 @@ namespace TaskLiterature
         }
         public void ChangeTheme(Book book)
         {
-            ThemeName = "Fantasia";
+            _themeName = "Fantasia";
+        }
+        public double Price
+        {
+            get
+            {
+                return _price;
+            }
+            set
+            {
+                if (value > 30)
+                {
+                    _price = value * 0.9;
+                }
+                else
+                {
+                    _price = value;
+                }
+            }
+        }
+        public string Author
+        {
+            get
+            {
+                return _author;
+            }
         }
     }
 }
